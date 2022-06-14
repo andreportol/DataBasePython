@@ -5,7 +5,7 @@ def conecta_db():
     try:
         conexao = psycopg2.connect(host='localhost', 
                             database='Python',
-                            user='postgres', 
+                            user ='postgres', 
                             password='postgres')
     except psycopg2.OperationalError:
         print('Banco não conectado!')
