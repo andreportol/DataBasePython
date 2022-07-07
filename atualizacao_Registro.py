@@ -30,6 +30,14 @@ sql1 = ''' update contatos
 id = input("Digite o id do contato que será atualizado: ")
 # a virgula serve para indicar ao interpretador python que se trata de uma tupla
 args = (id,)
-cursor.execute(sql1, id)
+try:
+    cursor.execute(sql, id)
+except psycopg2.ProgrammingError as erro:
+    print(erro)
+
+else:
+    print(f'{cursor.rowcount} registro(s) alterado(s).')
+# cursor>rowcount conta o numero de linhas alteradas
+
 conexao.commit()
 conexao.close()
