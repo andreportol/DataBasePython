@@ -20,6 +20,3 @@ cursor.execute(sql)
 contatos = cursor.fetchall()
 for i, contato in enumerate (contatos, start = 1):
     print(f'{i} = {contato[0]},{contato[1]}')
-
-conexao.commit()
-conexao.close()
