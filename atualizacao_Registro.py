@@ -1,16 +1,18 @@
 import psycopg2
 
-def conexao_DB(): 
+
+def conexao_DB():
     try:
-        conexao = psycopg2.connect(host='localhost', 
-                            database='Python',
-                            user='postgres', 
-                            password='Genius2003$')
+        conexao = psycopg2.connect(host='localhost',
+                                   database='Python',
+                                   user='postgres',
+                                   password='Genius2003$')
     except psycopg2.OperationalError:
         print('Banco não conectado!')
     else:
         print('Banco de dados conectado!')
         return conexao
+
 
 conexao = conexao_DB()
 cursor = conexao.cursor()
@@ -26,7 +28,8 @@ sql1 = ''' update contatos
 # Nome é String com apostrofo
 
 id = input("Digite o id do contato que será atualizado: ")
-args = (id)
-cursor.execute(sql1,id)
+# a virgula serve para indicar ao interpretador python que se trata de uma tupla
+args = (id,)
+cursor.execute(sql1, id)
 conexao.commit()
 conexao.close()
