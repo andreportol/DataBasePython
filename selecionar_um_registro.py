@@ -17,7 +17,7 @@ if __name__=='__main__':
     try:
         conexao = conecta_DB()
         sql = '''select nome, telefone from contatos 
-                 offset 22'''
+                 offset 2'''
         cursor = conexao.cursor()
         cursor.execute(sql)
     except psycopg2.ProgrammingError as e:

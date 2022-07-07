@@ -19,7 +19,7 @@ if __name__=='__main__':
         cursor = conexao.cursor()
         sql = '''select * from contatos 
                  limit 10
-                 offset 20'''
+                 offset 2'''
         cursor.execute(sql)
         contatos = cursor.fetchall()
     except psycopg2.ProgrammingError as e:
@@ -29,5 +29,5 @@ if __name__=='__main__':
         for contato in contatos:
             print(f'id:{contato[2]:3d} Nome:{contato[0]:12s} telefone: {contato[1]:10s}')
     
-    conexao.commit()
-    conexao.close()
+    conexao.commit() # salva no banco
+    conexao.close() # fecha conexão ao banco
