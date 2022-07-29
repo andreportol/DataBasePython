@@ -22,6 +22,7 @@ args = (
         ('Maycon','98745632'),
         ('Celia','456322632'),
         ('Grazi','874125692'),
+        ('Rayane','992245710')
         )
 try:
     cursor.executemany(sql,args)
